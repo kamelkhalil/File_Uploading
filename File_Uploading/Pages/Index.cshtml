@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "File Uploading";
+}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Upload File
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="file" class="form-label">Choose File</label>
+                            <div class="input-group">
+                                <input type="file" name="file" id="file" class="form-control" />
+                                <label for="file" class="input-group-text">Browse</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model.filePath))
+    {
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Uploaded Image
+                    </div>
+                    <div class="card-body">
+                        <img src="@Model.filePath" alt="Alternate text" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
